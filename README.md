@@ -6,6 +6,7 @@ A basic template for building nodejs + pi applications.
 ###Raspberry Pi B v1
 - Use NOOBS_lite_v1_5 to install Raspbian Jessie
 - Install nodejs //TODO: give details
+- Ensure SSH is running
 
 ###Grunt Deploy to Pi Setup
 Create a file named `grunt_ssh_config.json` in the root project directory with the following JSON:
@@ -17,6 +18,8 @@ Create a file named `grunt_ssh_config.json` in the root project directory with t
         "password": "raspberry",
         "directory": "/home/pi/pinodes"
     }
+
+Change the pertinent information as required. The `directory` field should be an absolute path to a place where this repository should be installed on the Pi.
 
 
 
