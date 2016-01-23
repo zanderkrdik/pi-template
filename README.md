@@ -2,6 +2,12 @@
 
 A basic template for building nodejs + pi applications.
 
+Deployment to Raspberry Pi
+===
+The grunt configuration provides two main tasks for dealing with the Pi:
+- deploy: Packages and installs this codebase onto the pi. This is a full deploy, meaning that all required packages will be installed as well. While useful, this may slow development if some dependencies require compilation.
+- devdeploy: A light deployment method, moving just project files. Allows rapid development as dependencies are not deployed. Not intended for real deployment, as dependencies can be easily broken.
+
 ##Setup
 ###Raspberry Pi B v1
 - Use NOOBS_lite_v1_5 to install Raspbian Jessie
@@ -19,13 +25,7 @@ Create a file named `grunt_ssh_config.json` in the root project directory with t
         "directory": "/home/pi/pinodes"
     }
 
-Change the pertinent information as required. The `directory` field should be an absolute path to a place where this repository should be installed on the Pi.
-
-
-
-##Grunt Integration
-
-Uses Grunt to perform a variety of tasks, including deployment to a remote Pi.
+Change the pertinent information as required. The `directory` field should be an absolute path to a place where this repository should be installed on the Pi. If it does not exist, this directory will be created.
 
 #Pi Pinout Reference
 Pi Revision 1

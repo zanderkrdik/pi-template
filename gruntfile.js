@@ -31,8 +31,7 @@ module.exports = function (grunt) {
         sftp: {
             devdeploy: {
                 files: {
-                    "./": ["*.js"],
-                    "./": ["lib/*.js"]
+                    "./": ["./*.js","lib/*.js"]
                 },
                 options: {
                     path: '<%=ssh_config.directory%>/<%=pkg.name%>',
