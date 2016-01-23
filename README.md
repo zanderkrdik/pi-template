@@ -1,15 +1,8 @@
 ---
+
 Continual work in progress. Used as a basis for other projects, and evolves with those.
+
 ---
-
-
-
-
-
-
-
-
-
 
 
 #pi-template
