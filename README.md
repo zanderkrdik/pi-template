@@ -12,8 +12,16 @@ A basic template for building nodejs + pi applications.
 Deployment to Raspberry Pi
 ===
 The grunt configuration provides two main tasks for dealing with the Pi:
-- deploy: Packages and installs this codebase onto the pi. This is a full deploy, meaning that all required packages will be installed as well. While useful, this may slow development if some dependencies require compilation.
-- devdeploy: A light deployment method, moving just project files. Allows rapid development as dependencies are not deployed. Not intended for real deployment, as dependencies can be easily broken.
+
+deploy 
+_
+Packages and installs this codebase onto the pi. This is a full deploy, meaning that all required packages will be installed as well. While useful, this may slow development if some dependencies require compilation.
+
+devdeploy
+_
+A light deployment method, moving just project files. Allows rapid development as dependencies are not deployed. Not intended for real deployment, as dependencies can be easily broken.
+
+Akin to a `git clone`, pulling files but not running `npm install`.
 
 ##Setup
 ###Raspberry Pi B v1
