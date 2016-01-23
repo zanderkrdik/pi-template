@@ -1,6 +1,12 @@
-#pinode-template
+#pi-template
 
 A basic template for building nodejs + pi applications.
+
+##Setup
+###Raspberry Pi B v1
+- Use NOOBS_lite_v1_5 to install Raspbian Jessie
+- Install nodejs //TODO: give details
+
 
 ##Grunt Integration
 
