@@ -1,12 +1,77 @@
 
-//var gpio = require("pi-gpio");
+/**
+ * Test Code
+ */
+// var Ping = require('./lib/ping');
+// Ping.ping();
+// Ping.flash();
+//
+//
+//
 
-// gpio.open(12, "output", function(err) { // Open pin 16 for output
-//     gpio.write(12, 1, function() { // Set pin 16 high (1)
-//         gpio.close(12); // Close pin 16
-//     });
-// });
+var
+    gpio = require('rpi-gpio');
 
-var Ping = require('./lib/ping');
-Ping.ping();
-Ping.flash();
+var
+    pin = 16;
+
+
+var p = {
+    setup: function () {
+        return new Promise(
+            function (resolve, reject) {
+                console.log('setup');
+                gpio.setup(pin, gpio.DIR_OUT, function () {
+                    resolve(pin);
+                });
+            }
+            )
+    },
+    on: function () {
+        return new Promise(
+            function (resolve, reject) {
+                console.log('on');
+                gpio.write(pin, true, function () {
+                    setTimeout(function () {
+                        resolve(pin);
+                    }, 5000);
+                });
+            }
+            )
+    },
+    off: function () {
+        return new Promise(
+            function (resolve, reject) {
+                console.log('off');
+                gpio.write(pin, false, function () {
+                    resolve('ping');
+                });
+            }
+            )
+    },
+}
+
+var rej = function (reject) {
+    console.log('off rejected!');
+    gpio.destroy();
+}
+
+
+p.setup().then(
+    function (resolve) {
+        p.on().then(
+            function (resolve) {
+                p.off().then(
+                    function (resolve) {
+                        gpio.destroy();
+                    },
+                    rej
+                    );
+            },
+            rej
+            );
+    },
+    rej
+    );
+
+
